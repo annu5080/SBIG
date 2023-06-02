@@ -28,7 +28,7 @@ public class testCase1 extends BaseClass{
     ExtentTest test;
 
     @Test(priority = 1)
-    public void TestCase1() {
+    public void preHomeScreen() {
         preHomeScreen = new PreHomeScreen(appiumDriver);
         test = extent.createTest("Test Case1");
         try{
@@ -42,7 +42,7 @@ public class testCase1 extends BaseClass{
         }
     }
     @Test(priority = 2)
-    public void TestCase2(){
+    public void homescreen(){
         homeScreen = new HomeScreen(appiumDriver);
         test = extent.createTest("Test Case2");
         try{
@@ -60,7 +60,7 @@ public class testCase1 extends BaseClass{
         }
     }
     @Test(priority = 3)
-    public void TestCase3(){
+    public void personalDetails(){
         personalDetails = new PersonalDetails(appiumDriver);
         test = extent.createTest("Test Case3");
         try {
@@ -79,7 +79,7 @@ public class testCase1 extends BaseClass{
         }
     }
     @Test(priority = 4)
-    public void TestCase4(){
+    public void arogyaSupreme(){
         arogyaSupreme = new ArogyaSupreme(appiumDriver);
         test = extent.createTest("Test Case4");
         try {
@@ -96,7 +96,7 @@ public class testCase1 extends BaseClass{
         }
     }
     @Test(priority = 5)
-    public void TestCase5() {
+    public void insuredDetails() {
         try {
             insuredDetails = new InsuredDetails(appiumDriver);
             test = extent.createTest("Test Case5");
@@ -130,7 +130,7 @@ public class testCase1 extends BaseClass{
         }
     }
     @Test(priority = 6)
-    public void TestCase6(){
+    public void healthQuestionare(){
         healthQuestionare = new HealthQuestionare(appiumDriver);
         test = extent.createTest("Test Case6");
         try {
@@ -150,7 +150,7 @@ public class testCase1 extends BaseClass{
         }
     }
     @Test(priority = 7)
-    public void TestCase7(){
+    public void proposerDetails(){
         proposerDetails = new ProposerDetails(appiumDriver);
         test = extent.createTest("Test Case7");
         try {
@@ -180,7 +180,7 @@ public class testCase1 extends BaseClass{
         }
     }
     @Test(priority = 8)
-    public void TestCase8(){
+    public void pdAddressPage(){
         pdAddressPage = new PDAddressPage(appiumDriver);
         test = extent.createTest("Test Case8");
 
@@ -210,7 +210,7 @@ public class testCase1 extends BaseClass{
         }
     }
     @Test(priority = 9)
-    public void TestCase9(){
+    public void nomineeDetails(){
         nomineeDetails = new NomineeDetails(appiumDriver);
         test = extent.createTest("Test Case9");
         try {
@@ -249,7 +249,7 @@ public class testCase1 extends BaseClass{
         }
     }
     @Test(priority=10)
-    public void TestCase10(){
+    public void policySummary(){
         policySummary = new PolicySummary(appiumDriver);
         test = extent.createTest("Test Case10");
         try {
@@ -269,7 +269,7 @@ public class testCase1 extends BaseClass{
         }
     }
     @Test(priority = 11)
-    public void TestCase11(){
+    public void submitYourDetails(){
         submitYourDetails = new SubmitYourDetails(appiumDriver);
         test = extent.createTest("Test Case11");
         try {
