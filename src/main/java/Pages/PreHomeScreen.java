@@ -2,10 +2,21 @@ package Pages;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import utils.BaseTest;
+import utils.TestUtils;
 
-public class PreHomeScreen {
+public class PreHomeScreen extends BaseTest {
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    TestUtils utils = new TestUtils();
+
+
 
     private AppiumDriver appiumDriver;
     private final By noSelById = new AppiumBy.ByAccessibilityId("No");
@@ -27,4 +38,5 @@ public class PreHomeScreen {
     public WebElement PopUp() {
         return appiumDriver.findElement(popupSelByXPATH);
     }
+
 }

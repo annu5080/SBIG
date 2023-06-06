@@ -8,23 +8,41 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import org.testng.annotations.*;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
+
 public class ExtentReportsSBIG {
-    ExtentReports extent;
-    ExtentSparkReporter html = new ExtentSparkReporter("Reports\\ExtentReport.html");
+    static ExtentReports extent;
+    final static String filepath = "Reports\\ExtentReport.html";
+    static Map<Integer, ExtentTest> extentTestMap = new HashMap();
+    //ExtentReports extent;
+//    ExtentSparkReporter html = new ExtentSparkReporter("Reports\\ExtentReport.html");
     ExtentTest test;
 
-    @BeforeTest
-    public void reportSetup(){
-        html.config().setDocumentTitle("SBIG Framework");
-        html.config().setReportName("SBIG App");
-        html.config().setTheme(Theme.DARK);
-        extent = new ExtentReports();
-        extent.attachReporter(html);
+    public synchronized static ExtentReports reportSetup() {
+        if (extent == null) {
+            ExtentSparkReporter html = new ExtentSparkReporter("Reports\\ExtentReport.html");
+            html.config().setDocumentTitle("SBIG Framework");
+            html.config().setReportName("SBIG App");
+            html.config().setTheme(Theme.DARK);
+            extent = new ExtentReports();
+            extent.attachReporter(html);
+        }
+        return extent;
     }
 
-    @AfterTest
-    public void reportTeardown(){
-        // calling flush writes everything to the log file
-        extent.flush();
+
+//    public void reportTeardown(){
+//        // calling flush writes everything to the log file
+//        extent.flush();
+//    }
+    public static synchronized ExtentTest getTest() {
+        return (ExtentTest) extentTestMap.get((int) (long) (Thread.currentThread().getId()));
+    }
+    public static synchronized ExtentTest startTest(String testName, String desc) {
+        ExtentTest test = reportSetup().createTest(testName, desc);
+        extentTestMap.put((int) (long) (Thread.currentThread().getId()), test);
+        return test;
     }
 }

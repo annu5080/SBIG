@@ -3,14 +3,20 @@ package test;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import test.ExtentReportsSBIG;
 import utils.MobileCapabilityEx;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
@@ -49,6 +55,18 @@ public class BaseClass extends ExtentReportsSBIG {
 
     @AfterTest
     public void tearDown(){
+        appiumDriver.quit();
+    }
+    public void captureScreenshot(String filename) {
+        TakesScreenshot takesScreenshot = appiumDriver;
+        File sourceFile = appiumDriver.getScreenshotAs(OutputType.FILE);
+        File destFile = new File("./Screenshot/" + filename);
+        try{
+            FileUtils.copyFile(sourceFile, destFile);
+        } catch (Exception e){
+            throw new RuntimeException(e);
+        }
+        System.out.println("Screenshot saved successfully");
     }
 
 }

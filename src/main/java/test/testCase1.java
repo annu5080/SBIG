@@ -1,18 +1,13 @@
 package test;
 
 import Pages.*;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
-import io.appium.java_client.AppiumBy;
-import io.appium.java_client.AppiumDriver;
-import net.bytebuddy.build.Plugin;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.WebElement;
-import org.testng.annotations.Test;
-import utils.LaunchApp;
 
-public class testCase1 extends BaseClass{
+import com.aventstack.extentreports.ExtentTest;
+import io.appium.java_client.AppiumBy;
+import org.testng.annotations.Test;
+
+//@Listeners({ITestListener.class})
+public class testCase1 extends BaseClass {
 
     PreHomeScreen preHomeScreen;
     HomeScreen homeScreen;
@@ -25,12 +20,11 @@ public class testCase1 extends BaseClass{
     NomineeDetails nomineeDetails;
     PolicySummary policySummary;
     SubmitYourDetails submitYourDetails;
-    ExtentTest test;
 
     @Test(priority = 1)
     public void preHomeScreen() {
         preHomeScreen = new PreHomeScreen(appiumDriver);
-        test = extent.createTest("Test Case1");
+
         try{
             preHomeScreen.No().click();
             preHomeScreen.Skip().click();
@@ -44,7 +38,6 @@ public class testCase1 extends BaseClass{
     @Test(priority = 2)
     public void homescreen(){
         homeScreen = new HomeScreen(appiumDriver);
-        test = extent.createTest("Test Case2");
         try{
             homeScreen.Hamburger().click();
             homeScreen.BuyHealthInsurance().click();
@@ -62,7 +55,6 @@ public class testCase1 extends BaseClass{
     @Test(priority = 3)
     public void personalDetails(){
         personalDetails = new PersonalDetails(appiumDriver);
-        test = extent.createTest("Test Case3");
         try {
             personalDetails.MobileNumber().sendKeys("9876543210");
             personalDetails.EmailId().sendKeys("a@gmail.com");
@@ -81,7 +73,6 @@ public class testCase1 extends BaseClass{
     @Test(priority = 4)
     public void arogyaSupreme(){
         arogyaSupreme = new ArogyaSupreme(appiumDriver);
-        test = extent.createTest("Test Case4");
         try {
             arogyaSupreme.Compare().click();
             appiumDriver.findElement(
@@ -97,9 +88,8 @@ public class testCase1 extends BaseClass{
     }
     @Test(priority = 5)
     public void insuredDetails() {
+        insuredDetails = new InsuredDetails(appiumDriver);
         try {
-            insuredDetails = new InsuredDetails(appiumDriver);
-            test = extent.createTest("Test Case5");
             insuredDetails.Self().click();
             insuredDetails.IDGender().click();
             insuredDetails.IDAge().click();
@@ -132,7 +122,6 @@ public class testCase1 extends BaseClass{
     @Test(priority = 6)
     public void healthQuestionare(){
         healthQuestionare = new HealthQuestionare(appiumDriver);
-        test = extent.createTest("Test Case6");
         try {
             healthQuestionare.AnyOtherPolicy().click();
             healthQuestionare.Next().click();
@@ -152,7 +141,6 @@ public class testCase1 extends BaseClass{
     @Test(priority = 7)
     public void proposerDetails(){
         proposerDetails = new ProposerDetails(appiumDriver);
-        test = extent.createTest("Test Case7");
         try {
             Thread.sleep(2000);
             proposerDetails.PanNumber().click();
@@ -182,7 +170,6 @@ public class testCase1 extends BaseClass{
     @Test(priority = 8)
     public void pdAddressPage(){
         pdAddressPage = new PDAddressPage(appiumDriver);
-        test = extent.createTest("Test Case8");
 
         try {
             Thread.sleep(30000);
@@ -212,7 +199,7 @@ public class testCase1 extends BaseClass{
     @Test(priority = 9)
     public void nomineeDetails(){
         nomineeDetails = new NomineeDetails(appiumDriver);
-        test = extent.createTest("Test Case9");
+
         try {
             nomineeDetails.NDGender().click();
             Thread.sleep(2000);
@@ -251,7 +238,6 @@ public class testCase1 extends BaseClass{
     @Test(priority=10)
     public void policySummary(){
         policySummary = new PolicySummary(appiumDriver);
-        test = extent.createTest("Test Case10");
         try {
             appiumDriver.findElement(
                     AppiumBy.androidUIAutomator(
@@ -271,7 +257,6 @@ public class testCase1 extends BaseClass{
     @Test(priority = 11)
     public void submitYourDetails(){
         submitYourDetails = new SubmitYourDetails(appiumDriver);
-        test = extent.createTest("Test Case11");
         try {
             submitYourDetails.Upload().click();
             submitYourDetails.FileManger().click();
