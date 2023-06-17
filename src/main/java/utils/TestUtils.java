@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Date;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import qa.BaseTest;
 
 public class TestUtils {
     public static final long WAIT = 10;

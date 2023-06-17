@@ -2,12 +2,11 @@ package test;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.MediaEntityBuilder;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import org.testng.annotations.*;
 
+import java.io.Flushable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
@@ -31,18 +30,14 @@ public class ExtentReportsSBIG {
         }
         return extent;
     }
-
-
-//    public void reportTeardown(){
-//        // calling flush writes everything to the log file
-//        extent.flush();
-//    }
     public static synchronized ExtentTest getTest() {
         return (ExtentTest) extentTestMap.get((int) (long) (Thread.currentThread().getId()));
     }
+
     public static synchronized ExtentTest startTest(String testName, String desc) {
         ExtentTest test = reportSetup().createTest(testName, desc);
         extentTestMap.put((int) (long) (Thread.currentThread().getId()), test);
         return test;
     }
+
 }

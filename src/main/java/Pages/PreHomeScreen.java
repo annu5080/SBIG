@@ -1,11 +1,9 @@
 package Pages;
 
-import io.appium.java_client.AppiumBy;
-import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import utils.BaseTest;
+
+import qa.BaseTest;
 import utils.TestUtils;
 
 public class PreHomeScreen extends BaseTest {
@@ -15,28 +13,23 @@ public class PreHomeScreen extends BaseTest {
     }
 
     TestUtils utils = new TestUtils();
+    @AndroidFindBy(id ="No")
+    private MobileElement noButton;
+    @AndroidFindBy(id = "SKIP")
+    private MobileElement skipButton;
+    @AndroidFindBy(xpath = "//android.widget.Button[@index = '0']" )
+    private MobileElement popup;
 
-
-
-    private AppiumDriver appiumDriver;
-    private final By noSelById = new AppiumBy.ByAccessibilityId("No");
-    private final By skipSelById = new AppiumBy.ByAccessibilityId("SKIP");;
-    private final By popupSelByXPATH = By.xpath("//android.widget.Button[@index = '0']");
-
-    public PreHomeScreen(AppiumDriver appiumDriver) {
-        this.appiumDriver = appiumDriver;
+    public PreHomeScreen No() {
+        click(noButton);
+        return this;
     }
-
-    public WebElement No() {
-        return appiumDriver.findElement(noSelById);
+    public PreHomeScreen Skip(){
+        click(skipButton);
+        return this;
     }
-
-    public WebElement Skip() {
-        return appiumDriver.findElement(skipSelById);
+    public PreHomeScreen PopUp(){
+        click(popup);
+        return this;
     }
-
-    public WebElement PopUp() {
-        return appiumDriver.findElement(popupSelByXPATH);
-    }
-
 }

@@ -21,7 +21,7 @@ public class ReportEmailSent {
 
     public void GetData() throws IOException {
 
-        File prop = new File("C:\\Users\\rajka\\Downloads\\New folder\\appium-pageobjectmodel-master\\src\\main\\resources\\config.properties");
+        File prop = new File("C:\\Users\\AnnuShaw\\Downloads\\New folder/appium-pageobjectmodel-annu\\src\\main\\resources\\config.properties");
         FileInputStream input =new FileInputStream(prop);
         Properties props = new Properties();
         props.load(input);
@@ -91,7 +91,7 @@ public class ReportEmailSent {
                     + "All scenarios have been executed. Please find the attached report of the execution.  \n"
                     + "\n"
                     + "Regards,\n"
-                    + "Raj Kamal");
+                    + "Annu Shaw");
             Multipart multipart = new MimeMultipart();
             multipart.addBodyPart(messageBodyPart);
 
