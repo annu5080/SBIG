@@ -15,7 +15,7 @@ import java.lang.reflect.Method;
 public class testCase1 extends BaseTest {
 
     PreHomeScreen preHomeScreen;
-//    HomeScreen homeScreen;
+    HomeScreen homeScreen;
 //    PersonalDetails personalDetails;
 //    ArogyaSupreme arogyaSupreme;
 //    InsuredDetails insuredDetails;
@@ -79,23 +79,37 @@ public class testCase1 extends BaseTest {
             throw new RuntimeException(e);
         }
     }
-//    @Test(priority = 2)
-//    public void homescreen(){
-//        homeScreen = new HomeScreen(appiumDriver);
-//        try{
-//            homeScreen.Hamburger().click();
-//            homeScreen.BuyHealthInsurance().click();
-//            homeScreen.ArogyaSupreme().click();
-//            homeScreen.next().click();
-//            homeScreen.next().click();
-//            homeScreen.OKGotIt().click();
-//            homeScreen.GetQuote().click();
-//        }catch (Exception e){
-//            System.out.println("Cause is: "+ e.getCause());
-//            System.out.println("Message is : " + e.getMessage());
-//            throw new RuntimeException(e);
-//        }
-//    }
+    @Test(priority = 2)
+    public void homescreen(){
+        homeScreen = new HomeScreen();
+        try{
+            homeScreen.Hamburger();
+            utils.log().info("Clicked on Hamburger Menu");
+            ExtentReportsSBIG.getTest().info("Clicked on Hamburger Menu");
+            homeScreen.BuyHealthInsurance();
+            utils.log().info("Clicked on Buy Health Insurance");
+            ExtentReportsSBIG.getTest().info("Clicked on Buy Health Insurance");
+            homeScreen.ArogyaSupreme();
+            utils.log().info("Clicked on Arogya Supreme");
+            ExtentReportsSBIG.getTest().info("Clicked on Arogya Supreme");
+            homeScreen.next();
+            utils.log().info("Clicked on Next button");
+            ExtentReportsSBIG.getTest().info("Clicked on Next button");
+            homeScreen.next();
+            utils.log().info("Clicked on Next button");
+            ExtentReportsSBIG.getTest().info("Clicked on Next button");
+            homeScreen.OKGotIt();
+            utils.log().info("Clicked on Ok Got It");
+            ExtentReportsSBIG.getTest().info("Clicked on Ok Got It");
+            homeScreen.GetQuote();
+            utils.log().info("Clicked on Get Quote");
+            ExtentReportsSBIG.getTest().info("Clicked on Get Quote");
+        }catch (Exception e){
+            System.out.println("Cause is: "+ e.getCause());
+            System.out.println("Message is : " + e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
 //    @Test(priority = 3)
 //    public void personalDetails(){
 //        personalDetails = new PersonalDetails(appiumDriver);
