@@ -1,4 +1,4 @@
-package test;
+package Reports;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -21,7 +21,7 @@ public class ExtentReportsSBIG {
 
     public synchronized static ExtentReports reportSetup() {
         if (extent == null) {
-            ExtentSparkReporter html = new ExtentSparkReporter("Reports\\ExtentReport.html");
+            ExtentSparkReporter html = new ExtentSparkReporter("Generated_Reports\\ExtentReport.html");
             html.config().setDocumentTitle("SBIG Framework");
             html.config().setReportName("SBIG App");
             html.config().setTheme(Theme.DARK);

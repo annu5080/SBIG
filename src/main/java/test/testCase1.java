@@ -2,8 +2,7 @@ package test;
 
 import Pages.*;
 
-import io.appium.java_client.AppiumDriver;
-import org.json.JSONObject;
+import Reports.ExtentReportsSBIG;
 import org.json.JSONTokener;
 import org.testng.annotations.*;
 import qa.BaseTest;
@@ -27,25 +26,25 @@ public class testCase1 extends BaseTest {
 //    PolicySummary policySummary;
 //    SubmitYourDetails submitYourDetails;
     TestUtils utils = new TestUtils();
-    @BeforeClass
-    public void beforeClass() throws Exception {
-        InputStream datais = null;
-        try {
-            String dataFileName = "data/loginUsers.json";
-            datais = getClass().getClassLoader().getResourceAsStream(dataFileName);
-            JSONTokener tokener = new JSONTokener(datais);
-//            loginUsers = new JSONObject(tokener);
-        } catch(Exception e) {
-            e.printStackTrace();
-            throw e;
-        } finally {
-            if(datais != null) {
-                datais.close();
-            }
-        }
-        closeApp();
-        launchApp();
-    }
+//    @BeforeClass
+//    public void beforeClass() throws Exception {
+//        InputStream datais = null;
+//        try {
+//            String dataFileName = "data/loginUsers.json";
+//            datais = getClass().getClassLoader().getResourceAsStream(dataFileName);
+//            JSONTokener tokener = new JSONTokener(datais);
+////            loginUsers = new JSONObject(tokener);
+//        } catch(Exception e) {
+//            e.printStackTrace();
+//            throw e;
+//        } finally {
+//            if(datais != null) {
+//                datais.close();
+//            }
+//        }
+//        closeApp();
+//        launchApp();
+//    }
 
     @AfterClass
     public void afterClass() {

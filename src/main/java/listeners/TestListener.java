@@ -10,7 +10,7 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 import qa.BaseTest;
-import test.ExtentReportsSBIG;
+import Reports.ExtentReportsSBIG;
 import utils.TestUtils;
 
 import java.io.File;

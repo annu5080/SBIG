@@ -26,7 +26,7 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
-import test.ExtentReportsSBIG;
+import Reports.ExtentReportsSBIG;
 import utils.ReportEmailSent;
 import utils.TestUtils;
 
@@ -193,7 +193,7 @@ public class BaseTest {
         environment.put("ANDROID_HOME", "C:/Users/AnnuShaw/AppData/Local/Android/Sdk");
         return AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
                 .usingDriverExecutable(new File("C:/Program Files/nodejs"))
-                                .withAppiumJS(new File("C:/Program Files/Appium Server GUI/resources/app/node_modules/appium/build/lib/main.js"))
+                .withAppiumJS(new File("C:/Users/AnnuShaw/AppData/Roaming/npm/node_modules/appium/build/lib/main.js"))
 //                .withAppiumJS(new File("C:/Users/rajka/node_modules/appium/build/lib/main.js"))
 
 

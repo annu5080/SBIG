@@ -13,14 +13,15 @@ public class PreHomeScreen extends BaseTest {
     }
 
     TestUtils utils = new TestUtils();
-    @AndroidFindBy(id ="No")
+    @AndroidFindBy(accessibility ="No")
     private MobileElement noButton;
-    @AndroidFindBy(id = "SKIP")
+    @AndroidFindBy(accessibility = "SKIP")
     private MobileElement skipButton;
     @AndroidFindBy(xpath = "//android.widget.Button[@index = '0']" )
     private MobileElement popup;
 
-    public PreHomeScreen No() {
+    public PreHomeScreen No() throws InterruptedException {
+        Thread.sleep(20000);
         click(noButton);
         return this;
     }
