@@ -30,12 +30,13 @@ public class HomeScreen extends BaseTest {
     private MobileElement GetQuoteById;
 
     public HomeScreen Hamburger() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         click(HamburgerByXpath);
         return this;
     }
-    public HomeScreen BuyHealthInsurance(){
+    public HomeScreen BuyHealthInsurance() throws InterruptedException {
         click(BuyHealthInsuranceById);
+        Thread.sleep(2000);
         return this;
     }
     public HomeScreen ArogyaSupreme(){

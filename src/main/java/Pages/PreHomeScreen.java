@@ -21,7 +21,7 @@ public class PreHomeScreen extends BaseTest {
     private MobileElement popup;
 
     public PreHomeScreen No() throws InterruptedException {
-        Thread.sleep(20000);
+        Thread.sleep(30000);
         click(noButton);
         return this;
     }

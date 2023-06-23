@@ -42,6 +42,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
@@ -253,6 +254,13 @@ public class BaseTest {
                     desiredCapabilities.setCapability("automationName", props.getProperty("androidAutomationName"));
                     desiredCapabilities.setCapability("appPackage", props.getProperty("androidAppPackage"));
                     desiredCapabilities.setCapability("appActivity", props.getProperty("androidAppActivity"));
+                    desiredCapabilities.setCapability("autoAcceptAlerts",true);
+                    desiredCapabilities.setCapability("enablePerformanceLogging", true);
+                    desiredCapabilities.setCapability("autoGrantPermissions",true);
+                    desiredCapabilities.setCapability("extendedDebugging", true);
+                    desiredCapabilities.setCapability("locationContextEnabled", true);
+                    desiredCapabilities.setCapability("autoAcceptAlerts", true);
+                    desiredCapabilities.setCapability("locationServicesAuthorized", false);
                     if(emulator.equalsIgnoreCase("true")) {
                         desiredCapabilities.setCapability("avd", deviceName);
                         desiredCapabilities.setCapability("avdLaunchTimeout", 120000);
@@ -267,6 +275,7 @@ public class BaseTest {
 
 
                     driver = new AndroidDriver(url, desiredCapabilities);
+                    driver.manage().timeouts().implicitlyWait(30L, TimeUnit.SECONDS);
                     break;
                 case "iOS":
                     desiredCapabilities.setCapability("automationName", props.getProperty("iOSAutomationName"));
@@ -369,8 +378,12 @@ public class BaseTest {
         ((InteractsWithApps) getDriver()).launchApp();
     }
 
-    public MobileElement scrollToElement(String elementTextName) {
-        return (MobileElement) ((FindsByAndroidUIAutomator) getDriver()).findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""+elementTextName+"\").instance(0))");
+    public MobileElement scrollToEnd(){
+        return (MobileElement) ((FindsByAndroidUIAutomator) getDriver()).findElementByAndroidUIAutomator(
+                "new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollToEnd(50);");
+
+//    public MobileElement scrollToElement(MobileElement elementTextName) {
+//        return (MobileElement) ((FindsByAndroidUIAutomator) getDriver()).findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""+elementTextName+"\").instance(0))");
 //		  return (MobileElement) ((FindsByAndroidUIAutomator) getDriver()).findElementByAndroidUIAutomator(
 //			  "new UiScrollable(new UiSelector()" + ".scrollable(true)).scrollIntoView("
 //					  + "new UiSelector().description(\"\"));");
