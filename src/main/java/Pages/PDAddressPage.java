@@ -7,6 +7,8 @@ import qa.BaseTest;
 import utils.TestUtils;
 
 public class PDAddressPage extends BaseTest {
+
+
     @Override
     protected Object clone() throws CloneNotSupportedException {
         return super.clone();
@@ -27,7 +29,7 @@ public class PDAddressPage extends BaseTest {
     private MobileElement PDANextById;
     public PDAddressPage SelectArea() throws InterruptedException {
         Thread.sleep(30000);
-        driver.navigate().back();
+//        driver.navigate().back();
         click(SelectAreaByXpath);
         return this;
     }
@@ -46,7 +48,7 @@ public class PDAddressPage extends BaseTest {
         Thread.sleep(2000);
         sendKeys(BuildingApartmentNameByXpath, "abcd");
         Thread.sleep(2000);
-        driver.navigate().back();
+//        driver.navigate().back();
         return this;
     }
     public PDAddressPage StreetName() throws InterruptedException {
@@ -54,7 +56,7 @@ public class PDAddressPage extends BaseTest {
         Thread.sleep(2000);
         sendKeys(StreetNameByXpath, "tysm");
         Thread.sleep(4000);
-        driver.navigate().back();
+//        driver.navigate().back();
         return this;
     }
     public PDAddressPage PDANext(){

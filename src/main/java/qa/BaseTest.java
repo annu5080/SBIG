@@ -261,6 +261,8 @@ public class BaseTest {
                     desiredCapabilities.setCapability("locationContextEnabled", true);
                     desiredCapabilities.setCapability("autoAcceptAlerts", true);
                     desiredCapabilities.setCapability("locationServicesAuthorized", false);
+//                    desiredCapabilities.setCapability("unicodeKeyboard", true);
+//                    desiredCapabilities.setCapability("resetKeyboard", true);
                     if(emulator.equalsIgnoreCase("true")) {
                         desiredCapabilities.setCapability("avd", deviceName);
                         desiredCapabilities.setCapability("avdLaunchTimeout", 120000);

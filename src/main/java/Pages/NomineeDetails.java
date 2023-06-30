@@ -53,7 +53,7 @@ public class NomineeDetails extends BaseTest {
         click(NDLastNameByXpath);
         Thread.sleep(2000);
         sendKeys(NDLastNameByXpath, "World");
-        driver.navigate().back();
+//        driver.navigate().back();
         return this;
     }
     public NomineeDetails NomineeRelation(){
@@ -63,7 +63,7 @@ public class NomineeDetails extends BaseTest {
     public NomineeDetails Mother() throws InterruptedException {
         click(MotherByXpath);
         Thread.sleep(4000);
-        driver.navigate().back();
+//        driver.navigate().back();
         scrollToEnd();
         return this;
     }

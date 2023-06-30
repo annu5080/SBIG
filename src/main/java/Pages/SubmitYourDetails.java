@@ -53,7 +53,6 @@ public class SubmitYourDetails extends BaseTest {
     public SubmitYourDetails Proceed() throws InterruptedException {
         click(ProceedByXpath);
         Thread.sleep(10000);
-        scrollToEnd();
         return this;
     }
     public SubmitYourDetails IDProof(){
@@ -68,23 +67,24 @@ public class SubmitYourDetails extends BaseTest {
         click(PassportNumberByXpath);
         sendKeys(PassportNumberByXpath, "N1234567");
         Thread.sleep(2000);
-        driver.navigate().back();
+//        driver.navigate().back();
         return this;
     }
     public SubmitYourDetails AddFiles(){
         click(AddFilesByXpath);
         return this;
     }
-    public SubmitYourDetails Submit(){
-        click(AddFilesByXpath);
+    public SubmitYourDetails Submit() throws InterruptedException {
+        Thread.sleep(2000);
+        click(SubmitByXpath);
         return this;
     }
     public SubmitYourDetails Next(){
-        click(AddFilesByXpath);
+        click(NextByXpath);
         return this;
     }
     public SubmitYourDetails VerifyOtp(){
-        click(AddFilesByXpath);
+        click(VerifyOtpByXpath);
         return this;
     }
 

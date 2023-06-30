@@ -34,7 +34,7 @@ public class InsuredDetails extends BaseTest {
     private MobileElement UnmarriedById;
     @AndroidFindBy(xpath = "//android.widget.EditText[@text='FIRST NAME']")
     private MobileElement IDFirstNameByXpath;
-    @AndroidFindBy(accessibility = "//android.widget.EditText[@text='LAST NAME']")
+    @AndroidFindBy(xpath = "//android.widget.EditText[@text='LAST NAME']")
     private MobileElement IDLastNameByXpath;
     @AndroidFindBy(xpath = "//android.widget.ImageView[@index='4']")
     private MobileElement IDDOBByXpath;
@@ -86,6 +86,7 @@ public class InsuredDetails extends BaseTest {
         click(IDFirstNameByXpath);
         Thread.sleep(2000);
         sendKeys(IDFirstNameByXpath, "Annu");
+        Thread.sleep(2000);
         return this;
     }
     public InsuredDetails IDLastName() throws InterruptedException {
@@ -95,7 +96,8 @@ public class InsuredDetails extends BaseTest {
         Thread.sleep(2000);
         return this;
     }
-    public InsuredDetails IDDOB(){
+    public InsuredDetails IDDOB() throws InterruptedException {
+        Thread.sleep(2000);
         click(IDDOBByXpath);
         return this;
     }

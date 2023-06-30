@@ -39,7 +39,7 @@ public class PersonalDetails extends BaseTest {
     public PersonalDetails PinCode()throws InterruptedException{
         click(PincodeByXpath);
         Thread.sleep(2000);
-        sendKeys(PincodeByXpath, "1100");
+        sendKeys(PincodeByXpath, "110");
         Thread.sleep(2000);
         return this;
     }
