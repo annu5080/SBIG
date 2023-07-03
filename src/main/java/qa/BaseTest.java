@@ -328,6 +328,7 @@ public class BaseTest {
         e.clear();
     }
 
+
     public void click(MobileElement e) {
         waitForVisibility(e);
         e.click();
