@@ -95,9 +95,9 @@ public class testCase1 extends BaseTest {
             homeScreen.next();
             utils.log().info("Clicked on Next button");
             ExtentReportsSBIG.getTest().info("Clicked on Next button");
-            homeScreen.next();
-            utils.log().info("Clicked on Next button");
-            ExtentReportsSBIG.getTest().info("Clicked on Next button");
+//            homeScreen.next();
+//            utils.log().info("Clicked on Next button");
+//            ExtentReportsSBIG.getTest().info("Clicked on Next button");
             homeScreen.OKGotIt();
             utils.log().info("Clicked on Ok Got It");
             ExtentReportsSBIG.getTest().info("Clicked on Ok Got It");

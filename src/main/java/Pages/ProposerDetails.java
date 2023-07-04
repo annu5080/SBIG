@@ -16,7 +16,7 @@ public class ProposerDetails extends BaseTest {
     }
 
     TestUtils utils = new TestUtils();
-    AndroidDriver driver;
+    WebDriver driver;
     @AndroidFindBy(xpath = "//android.widget.EditText[@text='PAN NUMBER*']")
     private MobileElement PanNumberByXpath;
     @AndroidFindBy(accessibility = "Type of Occupation")
