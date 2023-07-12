@@ -1,21 +1,18 @@
 package test;
 
-import Pages.*;
-
+import Pages.Health.ArogyaSupreme.*;
 import Reports.ExtentReportsSBIG;
-import org.json.JSONTokener;
 import org.testng.annotations.*;
 import qa.BaseTest;
 import utils.TestUtils;
 
-import java.io.InputStream;
 import java.lang.reflect.Method;
 
 //@Listeners({ITestListener.class})
 public class testCase1 extends BaseTest {
 
-    PreHomeScreen preHomeScreen;
     HomeScreen homeScreen;
+    IntroPage introPage;
     PersonalDetails personalDetails;
     ArogyaSupreme arogyaSupreme;
     InsuredDetails insuredDetails;
@@ -53,58 +50,52 @@ public class testCase1 extends BaseTest {
     @BeforeMethod
     public void beforeMethod(Method m) {
         utils.log().info("\n" + "****** starting test:" + m.getName() + "******" + "\n");
-        preHomeScreen = new PreHomeScreen();
+        homeScreen = new HomeScreen();
     }
 
     @AfterMethod
     public void afterMethod() {
     }
 
+
     @Test(priority = 1)
-    public void preHomeScreen() {
-//        preHomeScreen = new PreHomeScreen();
+    public void homescreen(){
         try{
-            preHomeScreen.No();
+            homeScreen.No();
             utils.log().info("Clicked on No button");
             ExtentReportsSBIG.getTest().info("Clicked on No button");
-            preHomeScreen.Skip();
+            homeScreen.Skip();
             utils.log().info("Clicked on Skip button");
             ExtentReportsSBIG.getTest().info("Clicked on Skip button");
-            preHomeScreen.PopUp();
+            homeScreen.PopUp();
             utils.log().info("Clicked on PopUp");
             ExtentReportsSBIG.getTest().info("Clicked on PopUp");
-        } catch (Exception e){
+            homeScreen.Health();
+            utils.log().info("Clicked on Health");
+            ExtentReportsSBIG.getTest().info("Clicked on Health");
+        }catch (Exception e){
             System.out.println("Cause is: "+ e.getCause());
             System.out.println("Message is : " + e.getMessage());
             throw new RuntimeException(e);
         }
     }
     @Test(priority = 2)
-    public void homescreen(){
-        homeScreen = new HomeScreen();
-        try{
-            homeScreen.Hamburger();
-            utils.log().info("Clicked on Hamburger Menu");
-            ExtentReportsSBIG.getTest().info("Clicked on Hamburger Menu");
-            homeScreen.BuyHealthInsurance();
-            utils.log().info("Clicked on Buy Health Insurance");
-            ExtentReportsSBIG.getTest().info("Clicked on Buy Health Insurance");
-            homeScreen.ArogyaSupreme();
+    public void IntroPage(){
+        introPage = new IntroPage();
+        try {
+            introPage.ArogyaSupreme();
             utils.log().info("Clicked on Arogya Supreme");
             ExtentReportsSBIG.getTest().info("Clicked on Arogya Supreme");
-            homeScreen.next();
+            introPage.next();
             utils.log().info("Clicked on Next button");
             ExtentReportsSBIG.getTest().info("Clicked on Next button");
-//            homeScreen.next();
-//            utils.log().info("Clicked on Next button");
-//            ExtentReportsSBIG.getTest().info("Clicked on Next button");
-            homeScreen.OKGotIt();
+            introPage.OKGotIt();
             utils.log().info("Clicked on Ok Got It");
             ExtentReportsSBIG.getTest().info("Clicked on Ok Got It");
-            homeScreen.GetQuote();
+            introPage.GetQuote();
             utils.log().info("Clicked on Get Quote");
             ExtentReportsSBIG.getTest().info("Clicked on Get Quote");
-        }catch (Exception e){
+        } catch (Exception e){
             System.out.println("Cause is: "+ e.getCause());
             System.out.println("Message is : " + e.getMessage());
             throw new RuntimeException(e);

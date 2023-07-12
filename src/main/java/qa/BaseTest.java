@@ -406,7 +406,8 @@ public class BaseTest {
     }
 
     @AfterTest (alwaysRun = true)
-    public void afterTest() {
+    public void afterTest() throws InterruptedException {
+        Thread.sleep(5000);
         if(getDriver() != null){
             getDriver().quit();
         }
