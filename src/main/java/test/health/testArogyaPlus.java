@@ -349,7 +349,7 @@ public class testArogyaPlus extends BaseTest {
             utils.log().info("Selected Photo");
             ExtentReportsSBIG.getTest().info("Selected Photo");
             submitYourDetails.AddFiles();
-            utils.log().info("Clicked on Add Filed");
+            utils.log().info("Clicked on Add Files");
             ExtentReportsSBIG.getTest().info("Clicked on Add Files");
             submitYourDetails.FileManger();
             utils.log().info("Clicked on File Manager");

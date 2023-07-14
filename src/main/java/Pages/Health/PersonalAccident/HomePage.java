@@ -1,6 +1,5 @@
 package Pages.Health.PersonalAccident;
 
-import Pages.Health.ArogyaSupreme.HomeScreen;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import qa.BaseTest;

@@ -10,7 +10,6 @@ public class HomeScreen extends BaseTest {
     protected Object clone() throws CloneNotSupportedException {
         return super.clone();
     }
-
     TestUtils utils = new TestUtils();
     @AndroidFindBy(accessibility ="No")
     private MobileElement noButton;
