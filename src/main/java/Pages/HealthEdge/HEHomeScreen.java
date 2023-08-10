@@ -22,7 +22,7 @@ public class HEHomeScreen extends BaseTest {
     private MobileElement HealthEdgeById;
 
     public HEHomeScreen No() throws InterruptedException{
-        Thread.sleep(10000);
+        Thread.sleep(50000);
         click(noButton);
         return this;
     }

@@ -54,6 +54,7 @@ public class NomineeDetails extends BaseTest {
         click(LastNameByXpath);
         Thread.sleep(2000);
         sendKeys(LastNameByXpath, "World");
+        back();
 //        driver.navigate().back();
         return this;
     }
@@ -64,6 +65,7 @@ public class NomineeDetails extends BaseTest {
     public NomineeDetails Mother() throws InterruptedException {
         click(MotherByXpath);
         Thread.sleep(4000);
+        back();
 //        driver.navigate().back();
         return this;
     }

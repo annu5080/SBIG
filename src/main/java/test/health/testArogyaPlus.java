@@ -89,6 +89,7 @@ public class testArogyaPlus extends BaseTest {
             introPage.GetQuote();
             utils.log().info("Clicked on Get Quote");
             ExtentReportsSBIG.getTest().info("Clicked on Get Quote");
+
         } catch (Exception e){
             System.out.println("Cause is: "+ e.getCause());
             System.out.println("Message is : " + e.getMessage());
@@ -250,7 +251,7 @@ public class testArogyaPlus extends BaseTest {
             proposerDetails.StreetName();
             utils.log().info("Clicked and Entered Street Name");
             ExtentReportsSBIG.getTest().info("Clicked and Entered Street Name");
-            proposerDetails.Next();
+            proposerDetails.AddressNext();
             utils.log().info("Clicked on Next Button");
             ExtentReportsSBIG.getTest().info("Clicked on Next Button");
         } catch (Exception e){

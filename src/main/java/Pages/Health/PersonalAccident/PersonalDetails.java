@@ -44,7 +44,6 @@ public class PersonalDetails extends BaseTest {
         return this;
     }
     public PersonalDetails Pincode() throws InterruptedException {
-        scrollToEnd();
         click(PincodeByXpath);
         Thread.sleep(3000);
         sendKeys(PincodeByXpath, "11000");

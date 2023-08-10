@@ -37,6 +37,7 @@ public class ProposerDetails extends BaseTest {
     public ProposerDetails PanNumber() throws InterruptedException {
         click(PanNumberByXpath);
         Thread.sleep(4000);
+        back();
 //        driver.navigate().back();
         sendKeys(PanNumberByXpath, "ABCDE1234F");
         Thread.sleep(2000);
@@ -83,6 +84,7 @@ public class ProposerDetails extends BaseTest {
         Thread.sleep(2000);
         sendKeys(BuildingApartmentNameByXpath, "abbbb");
         Thread.sleep(2000);
+        back();
         return this;
     }
     public ProposerDetails StreetName() throws InterruptedException {
@@ -90,6 +92,7 @@ public class ProposerDetails extends BaseTest {
         Thread.sleep(2000);
         sendKeys(StreetNameByXpath, "Yhuuu");
         Thread.sleep(2000);
+        back();
         return this;
     }
 }

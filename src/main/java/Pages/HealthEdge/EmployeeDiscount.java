@@ -18,12 +18,27 @@ public class EmployeeDiscount extends BaseTest {
     private MobileElement NoById;
     @AndroidFindBy(accessibility = "NEXT")
     private MobileElement NextById;
+    @AndroidFindBy(accessibility = "DONE")
+    private MobileElement DoneById;
+    @AndroidFindBy(accessibility = "Proceed with KYC")
+    private MobileElement ProceedWithKYCById;
     public EmployeeDiscount No(){
         click(NoById);
         return this;
     }
     public EmployeeDiscount Next(){
         click(NextById);
+        return this;
+    }
+    public EmployeeDiscount Done() throws InterruptedException {
+        scrollToEnd();
+        scrollToEnd();
+        Thread.sleep(6000);
+        click(DoneById);
+        return this;
+    }
+    public EmployeeDiscount ProceedWithKYC(){
+        click(ProceedWithKYCById);
         return this;
     }
 }

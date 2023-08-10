@@ -31,7 +31,7 @@ public class ProposerDetails extends BaseTest {
         sendKeys(PanNumberByXpath, "ABCDE1234F");
         Thread.sleep(2000);
 //        driver.navigate().back();
-        scrollToEnd();
+//        scrollToEnd();
         return this;
     }
 
@@ -44,7 +44,7 @@ public class ProposerDetails extends BaseTest {
         click(SelectOccupationById);
         Thread.sleep(6000);
 //        driver.navigate().back();
-        scrollToEnd();
+//        scrollToEnd();
         Thread.sleep(4000);
         return this;
     }

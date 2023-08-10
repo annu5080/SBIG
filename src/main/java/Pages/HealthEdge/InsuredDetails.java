@@ -26,11 +26,15 @@ public class InsuredDetails extends BaseTest {
     private MobileElement DOBById;
     @AndroidFindBy(accessibility = "CONFIRM")
     private MobileElement ConfirmById;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText[3]")
+    @AndroidFindBy(accessibility = "Type of Occupation")
+    private MobileElement OccupationById;
+    @AndroidFindBy(accessibility = "Self Employed")
+    private MobileElement SelectOccupationById;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.ScrollView/android.widget.EditText[1]")
     private MobileElement FeetByXpath;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText[4]")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.ScrollView/android.widget.EditText[2]")
     private MobileElement InchByXpath;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText[5]")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.ScrollView/android.widget.EditText[3]")
     private MobileElement WeightByXpath;
     @AndroidFindBy(accessibility = "SAVE DETAILS")
     private MobileElement SaveDetailsById;
@@ -70,35 +74,52 @@ public class InsuredDetails extends BaseTest {
 //        driver.navigate().back();
         return this;
     }
+    public InsuredDetails Occupation(){
+        click(OccupationById);
+        return this;
+    }
+    public InsuredDetails SelectOccupation(){
+        click(SelectOccupationById);
+        return this;
+    }
     public InsuredDetails Feet() throws InterruptedException {
         scrollToEnd();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         click(FeetByXpath);
         Thread.sleep(5000);
+        back();
+        scrollToEnd();
 //        driver.navigate().back();
         sendKeys(FeetByXpath, "5");
-        Thread.sleep(2000);
+        Thread.sleep(6000);
         return this;
     }
     public InsuredDetails Inch() throws InterruptedException {
+        back();
         scrollToEnd();
         click(InchByXpath);
-        Thread.sleep(5000);
+        Thread.sleep(8000);
+//        back();
+//        scrollToEnd();
 //        driver.navigate().back();
         sendKeys(InchByXpath, "8");
-        Thread.sleep(2000);
+        Thread.sleep(6000);
         return this;
     }
     public InsuredDetails Weight() throws InterruptedException {
-//        scrollToEnd();
+        back();
+        scrollToEnd();
         click(WeightByXpath);
-        Thread.sleep(2000);
+        Thread.sleep(8000);
+//        back();
+//        scrollToEnd();
 //        driver.navigate().back();
         sendKeys(WeightByXpath, "50");
-        Thread.sleep(2000);
+        Thread.sleep(6000);
         return this;
     }
     public InsuredDetails SaveDetails(){
+        back();
         click(SaveDetailsById);
         return this;
     }

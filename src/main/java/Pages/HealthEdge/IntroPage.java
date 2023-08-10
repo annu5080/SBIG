@@ -21,7 +21,7 @@ public class IntroPage extends BaseTest {
         return this;
     }
     public IntroPage GetQuote() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(6000);
         scrollToEnd();
         click(GetQuoteById);
         return this;

@@ -1,10 +1,7 @@
 package qa;
 
 import com.aventstack.extentreports.Status;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.FindsByAndroidUIAutomator;
-import io.appium.java_client.InteractsWithApps;
-import io.appium.java_client.MobileElement;
+import io.appium.java_client.*;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -15,6 +12,7 @@ import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.logging.log4j.ThreadContext;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -30,6 +28,7 @@ import Reports.ExtentReportsSBIG;
 import utils.ReportEmailSent;
 import utils.TestUtils;
 
+import javax.lang.model.element.Element;
 import javax.mail.MessagingException;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -54,7 +53,9 @@ public class BaseTest {
     protected static ThreadLocal <String> dateTime = new ThreadLocal<String>();
     protected static ThreadLocal <String> deviceName = new ThreadLocal<String>();
     private static AppiumDriverLocalService server;
+
     static TestUtils utils = new TestUtils();
+
 
     public static AppiumDriver getDriver() {
         return driver.get();
@@ -266,6 +267,7 @@ public class BaseTest {
                     if(emulator.equalsIgnoreCase("true")) {
                         desiredCapabilities.setCapability("avd", deviceName);
                         desiredCapabilities.setCapability("avdLaunchTimeout", 120000);
+                        desiredCapabilities.setCapability("adbExecTimeout", 60000);
                     }
                     desiredCapabilities.setCapability("systemPort", systemPort);
                     desiredCapabilities.setCapability("chromeDriverPort", chromeDriverPort);
@@ -323,11 +325,10 @@ public class BaseTest {
         wait.until(ExpectedConditions.visibilityOf(e));
     }
 
-    public void clear(MobileElement e) {
-        waitForVisibility(e);
-        e.clear();
+    public MobileElement back(){
+        getDriver().navigate().back();
+        return null;
     }
-
 
     public void click(MobileElement e) {
         waitForVisibility(e);
@@ -340,6 +341,25 @@ public class BaseTest {
         ExtentReportsSBIG.getTest().log(Status.INFO, msg);
         e.click();
     }
+    public void clear(MobileElement e) {
+        waitForVisibility(e);
+        e.clear();
+    }
+
+
+//    public void clearWebField(MobileElement element){
+//        while(!element.getAttribute("value").equals("")){
+//            element.sendKeys(Keys.BACK_SPACE);
+//        }
+//    }
+//    public String errorMessage(MobileElement e){
+//        waitForVisibility(e);
+//        e.getText();
+//        getDriver().findElementsByAccessibilityId(errorMessage(e));
+//        getDriver().findElementsByXPath("");
+//
+//        return null;
+//    }
 
     public void sendKeys(MobileElement e, String txt) {
         waitForVisibility(e);
@@ -352,11 +372,25 @@ public class BaseTest {
         ExtentReportsSBIG.getTest().log(Status.INFO, msg);
         e.sendKeys(txt);
     }
+    public boolean isElementDisplayed(MobileElement element){
+        try{
+            return element.isDisplayed();
+        }catch(Exception e){
+            //System.out.println(e);
+            return false;
+        }
+    }
 
     public static String getAttribute(MobileElement e, String attribute) {
         waitForVisibility(e);
         return e.getAttribute(attribute);
     }
+//    public static String getTextt(String msg){
+//        waitForVisibility();
+//        e.getText();
+//        System.out.println(msg + e);
+//        return msg;
+//    }
 
     public static String getText(MobileElement e, String msg) {
         String txt = null;
@@ -380,10 +414,12 @@ public class BaseTest {
     public void launchApp() {
         ((InteractsWithApps) getDriver()).launchApp();
     }
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
     public MobileElement scrollToEnd(){
         return (MobileElement) ((FindsByAndroidUIAutomator) getDriver()).findElementByAndroidUIAutomator(
+
                 "new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollToEnd(50);");
+
 
 //    public MobileElement scrollToElement(MobileElement elementTextName) {
 //        return (MobileElement) ((FindsByAndroidUIAutomator) getDriver()).findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""+elementTextName+"\").instance(0))");
@@ -392,6 +428,18 @@ public class BaseTest {
 //					  + "new UiSelector().description(\"\"));");
 
     }
+    public MobileElement scrollTo()
+    {
+//        ((FindsByAndroidUIAutomator) getDriver()).findElementByAndroidUIAutomator(
+//                "new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"Individual\").instance(0))").click();
+
+
+//        ((FindsByAndroidUIAutomator) getDriver()).findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
+//                + "new UiSelector().description(\"CUSTOMER CATEGORY\"));");
+        //getDriver().findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""+text+"\").instance(0))");
+        return null;
+    }
+
 
     public void iOSScrollToElement() {
         RemoteWebElement element = (RemoteWebElement)getDriver().findElement(By.name("test-ADD TO CART"));

@@ -67,7 +67,7 @@ public class SubmitYourDetails extends BaseTest {
         click(PassportNumberByXpath);
         sendKeys(PassportNumberByXpath, "N1234567");
         Thread.sleep(2000);
-//        driver.navigate().back();
+        back();
         return this;
     }
     public SubmitYourDetails AddFiles(){

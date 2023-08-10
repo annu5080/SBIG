@@ -44,11 +44,15 @@ public class NomineeDetails extends BaseTest {
     private MobileElement ProceedWithKYCById;
 
     public NomineeDetails Gender(){
+        back();
         click(GenderByXpath);
         return this;
     }
-    public NomineeDetails FirstName(){
+    public NomineeDetails FirstName() throws InterruptedException {
+        click(FirstNameByXpath);
+        Thread.sleep(2000);
         sendKeys(FirstNameByXpath, "Hello");
+        Thread.sleep(2000);
         return this;
     }
     public NomineeDetails LastName() throws InterruptedException {
@@ -59,18 +63,17 @@ public class NomineeDetails extends BaseTest {
         return this;
     }
     public NomineeDetails SelectRelation() throws InterruptedException {
-//        driver.navigate().back();
-        Thread.sleep(4000);
+        back();
         click(SelectRelationById);
         return this;
     }
-    public NomineeDetails Mother(){
+    public NomineeDetails Mother() throws InterruptedException {
         click(MotherById);
+        Thread.sleep(5000);
         return this;
     }
     public NomineeDetails DOB() throws InterruptedException {
-//        driver.navigate().back();
-        Thread.sleep(4000);
+        back();
         scrollToEnd();
         click(DOBByXpath);
         return this;

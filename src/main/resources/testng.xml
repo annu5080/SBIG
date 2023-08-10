@@ -11,9 +11,10 @@
         <parameter name="systemPort" value="10000" />
         <parameter name="chromeDriverPort" value="11000" />
         <classes>
+            <class name="test.testHealthEdge" />
 <!--            <class name="test.health.testHealthEdge" />-->
 <!--            <class name="test.health.testArogyaSupreme" />-->
-            <class name="test.health.testArogyaPlus" />
+<!--            <class name="test.health.testArogyaPlus" />-->
 <!--            <class name="test.health.testArogyaPremier"/>-->
 <!--            <class name="test.health.testArogyaSanjeevani" />-->
 <!--            <class name="test.health.testArogyaTopUp" />-->
@@ -21,6 +22,10 @@
 <!--            <class name="test.health.testPersonalAccident" />-->
 <!--            <class name="test.testCase1" />-->
 <!--            <class name="test.testCase2" />-->
+<!--            <class name="test.Motor.testPrivateCar"/>-->
+<!--            <class name="test.testCyberVaultEdge" />-->
+<!--            <class name="test.testHome" />-->
+<!--            <class name="test.testTravel" />-->
         </classes>
     </test>
 </suite>
